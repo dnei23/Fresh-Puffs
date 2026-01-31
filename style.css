@@ -1,0 +1,121 @@
+/* Paleta de Azul Profissional */
+:root {
+    --bg-dark: #0f172a;           /* Azul Escuro Marinho */
+    --card-bg: #1e293b;           /* Azul Slate */
+    --accent-blue: #38bdf8;       /* Azul Ciano (Destaque) */
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-blue);
+    margin-bottom: 15px;
+    animation: fadeInDown 0.8s ease;
+}
+
+h1 { font-size: 1.4rem; margin: 0; animation: fadeIn 1s ease; }
+p { color: var(--text-dim); font-size: 0.9rem; margin: 8px 0 30px 0; animation: fadeIn 1.2s ease; text-align: center;}
+
+.links-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.link-card {
+    background-color: var(--card-bg);
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+.link-card i {
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Hover: Muda para o tom de azul de destaque */
+.link-card:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-blue);
+    color: var(--bg-dark);
+}
+
+.link-card:hover i {
+    color: var(--bg-dark);
+}
+
+/* Delays para animação em cascata (5 links) */
+.link-card:nth-child(1) { animation-delay: 0.1s; }
+.link-card:nth-child(2) { animation-delay: 0.2s; }
+.link-card:nth-child(3) { animation-delay: 0.3s; }
+.link-card:nth-child(4) { animation-delay: 0.4s; }
+.link-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Botão em destaque (WhatsApp) */
+.pulse {
+    border: 1px solid var(--accent-blue);
+    animation: slideUp 0.6s ease forwards, pulseEffect 2s infinite;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+/* KEYFRAMES */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+@keyframes pulseEffect {
+    0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
